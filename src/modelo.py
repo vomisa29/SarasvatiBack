@@ -1,4 +1,4 @@
-from modeloMatchingCreativo import modelo_sarasvati_matematico as clase_modelo
+from src.modeloMatchingCreativo import modelo_sarasvati_matematico as clase_modelo
 
 class modeloSarasvati:
     def __init__(self,tipo):

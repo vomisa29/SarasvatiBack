@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from fastapi import Request
 from fastapi.middleware.cors import CORSMiddleware
 
-from modelo import modeloSarasvati
-from db_service.firebase_service import firebaseService
+from src.modelo import modeloSarasvati
+from src.db_service.firebase_service import firebaseService
 
 
 
