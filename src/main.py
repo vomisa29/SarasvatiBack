@@ -5,7 +5,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from modelo import modeloSarasvati
 from db_service.firebase_service import firebaseService
 
-from pydantic import BaseModel, Field
 
 
 app = FastAPI()
@@ -16,21 +15,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-class Mipyme(BaseModel):
-  apoyo_creativo: list[str] = Field(alias="Apoyo Creativo"),
-  anios_operando: str = Field(alias="Años operando"),
-  claridad: str = Field(alias="Claridad actual"),
-  dificultades: str = Field(alias="Dificultades previas"),
-  empleados: str = Field(alias="Empleados"),
-  empresa: str = Field(alias="Empresa"),
-  experiencia: str = Field(alias="Experiencia previa"),
-  matriales: list[str] = Field(alias="Materiales listos"),
-  objetivo: str = Field(alias="Objetivo"),
-  plazo: list[str] = Field(alias="Plazo"),
-  presencia_digital: str = Field(alias="Presencia digital"),
-  presupuesto: str = Field(alias="Presupuesto"),
-  sector: str = Field(alias="Sector"),
-  top3: list[str] = Field(alias="Top 3 al elegir")
 
 firebase_service = firebaseService()
 
@@ -41,7 +25,6 @@ def read_root():
 @app.post("/mipymes/")
 async def create_mipyme(request:Request):
     body = await request.json()
-    mipyme = Mipyme(**body)
     id_respuesta = firebase_service.put_mipyme(body)
     return id_respuesta
 
