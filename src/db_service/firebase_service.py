@@ -1,7 +1,8 @@
 from src.db_service.firebase_class import firebaseDB
 import os
+import json
 
-path = os.getenv("GOOGLE_CREDENTIALS")
+path = json.loads(os.getenv("GOOGLE_CREDENTIALS"))
 # path = "./src/secrets/credentials.json"
 url_database="https://back-sarasvati-default-rtdb.firebaseio.com/"
 
