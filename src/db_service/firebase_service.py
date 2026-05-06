@@ -1,4 +1,4 @@
-from db_service.firebase_class import firebaseDB
+from src.db_service.firebase_class import firebaseDB
 import os
 
 path = os.getenv("GOOGLE_CREDENTIALS")
