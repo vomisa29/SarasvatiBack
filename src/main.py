@@ -43,7 +43,8 @@ async def read_item(item_id: str | None = None):
         creativo=lista_creativos[indice-1]
         creativo_simple={
             "alias":creativo["Alias"],
-            "areas_principales":creativo["Area principal"]
+            "areas_principales":creativo["Area principal"],
+            "presupuesto":creativo["Rango precio"]
         }
         rta_modelo.append((creativo_simple,costo))
     return {"Respuesta Modelo": rta_modelo,
