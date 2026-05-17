@@ -28,6 +28,12 @@ async def create_mipyme(request:Request):
     id_respuesta = firebase_service.put_mipyme(body)
     return id_respuesta
 
+@app.post("/creativos/")
+async def create_mipyme(request:Request):
+    body = await request.json()
+    id_respuesta = firebase_service.put_creativo(body)
+    return id_respuesta
+
 
 @app.get("/modelo_matematico/{item_id}")
 async def read_item(item_id: str | None = None):
